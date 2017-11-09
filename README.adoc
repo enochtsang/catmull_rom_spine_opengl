@@ -1,14 +1,17 @@
-= Image Manipulation
+= Catmull-Rom Spline
 
-* Enoch Tsang
-* 10134554
-* November 10th, 2017
-* CPSC 453
-* Assignment 2
+An example program creating Catmull-Rom Splines in OpenGL 4 with tessellation shaders.
 
 == Compiling
 
-This code is based off the provided boilerplate code.
-The only additional library is the suggested GLM library at version 0.9.8.5.
+You will need GLFW3 and OpenGL libraries and `g++` that has C++11 features.
+Otherwise no special build tools are needed, just run `make` in the root directory and the `catmull-rom-spline` binary should be made.
 
-You can run the program using make run.
+You can change the compiler to be clang or nvcc in the make file by changing the `CXX` variable.
+But be warned that this hasn't been tested with those compilers.
+
+== Usage
+
+Click the screen to create control points at your cursor location.
+Once at least 4 control points have been created, a Catmull-Rom spline will be created between the second and third point.
+Every point after the first 4 will continue the Catmull-Rom spline.
