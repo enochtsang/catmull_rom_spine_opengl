@@ -53,7 +53,7 @@ bool initWindow(int width, int height, GLFWwindow** window) {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
-    *window = glfwCreateWindow(width, height, "Enoch Tsang -   Manipulation", 0, 0);
+    *window = glfwCreateWindow(width, height, "Enoch Tsang - Catmull Rom Spline", 0, 0);
 
     if (!*window) {
         std::cout << "Program failed to create GLFW window, TERMINATING" << std::endl;
