@@ -1,0 +1,14 @@
+= Image Manipulation
+
+* Enoch Tsang
+* 10134554
+* November 10th, 2017
+* CPSC 453
+* Assignment 2
+
+== Compiling
+
+This code is based off the provided boilerplate code.
+The only additional library is the suggested GLM library at version 0.9.8.5.
+
+You can run the program using make run.
