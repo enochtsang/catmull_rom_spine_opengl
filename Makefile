@@ -13,7 +13,7 @@
 
 ##############################################
 # Set up the project-specific options
-EXEC=image-manipulation
+EXEC=catmull-rom-spline
 LIBS=`pkg-config --libs glfw3 gl`
 
 ##############################################
