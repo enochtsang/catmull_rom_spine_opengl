@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
     // Initialize window
     GLFWwindow* window = 0;
 
-    if (!initWindow(400, 400, &window)) {
+    if (!initWindow(800, 800, &window)) {
         std::cerr << "Initializing window failed, exiting..." << std::endl;
         return 1;
     }
