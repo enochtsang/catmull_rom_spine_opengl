@@ -17,6 +17,6 @@ void main()
 	float b2 = (u) + (4.f * u * u) + (-3.f * u * u * u);
 	float b3 = (-1.f * u * u) + (u * u * u);
 	vec4 new_pos = 0.5f * (b0*p_1 + b1*p0 + b2*p1 + b3*p2);
-	gl_Position = vec4(new_pos.x + v * 0.01, new_pos.y + v * 0.01, new_pos.z, new_pos.w);
+	gl_Position = vec4(new_pos.x, new_pos.y + v * 0.05, new_pos.z, new_pos.w);
 	// gl_Position = vec4(new_pos.x + v * 0.05, new_pos.y + v * 0.05, new_pos.z, new_pos.y);
 }

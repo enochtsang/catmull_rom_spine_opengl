@@ -8,8 +8,8 @@ patch out vec4 p2;
 void main()
 {
 	if(gl_InvocationID == 0) {
-		gl_TessLevelOuter[0] = float(100);
-		gl_TessLevelOuter[1] = float(8);
+		gl_TessLevelOuter[0] = float(4);
+		gl_TessLevelOuter[1] = float(64);
 
 		p_1 = gl_in[0].gl_Position;
 		p2 = gl_in[3].gl_Position;

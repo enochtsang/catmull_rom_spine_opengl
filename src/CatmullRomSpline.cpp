@@ -78,32 +78,19 @@ void CatmullRomSpline::addPoint(float x, float y) {
     loadPoints();
 }
 
-void CatmullRomSpline::clear() {
-    points_.clear();
-    ebo_.clear();
-    loadPoints();
-}
-
-void CatmullRomSpline::render(glm::mat4 transform) {
+void CatmullRomSpline::render() {
     glBindVertexArray(vao_id_);
 
     // draw control points
     pointsShaderProgram_.use();
-    unsigned int transformLocation = glGetUniformLocation(pointsShaderProgram_.id(), "transform");
-    glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(transform));
-
     glPointSize(7);
     glDrawArrays(GL_POINTS, 0, points_.size() / STRIDE);
 
     // draw tessallation
     tessShaderProgram_.use();
-    transformLocation = glGetUniformLocation(tessShaderProgram_.id(), "transform");
-    glUniformMatrix4fv(transformLocation, 1, GL_FALSE, glm::value_ptr(transform));
-
     glPatchParameteri(GL_PATCH_VERTICES, 4);
     glLineWidth(100.f);
     glDrawElements(GL_PATCHES, ebo_.size(), GL_UNSIGNED_INT, 0);
-    // glDrawArrays(GL_PATCHES, 0, points_.size() / STRIDE);
 }
 
 /* PRIVATE */
@@ -128,21 +115,21 @@ void CatmullRomSpline::loadPoints() {
                   << std::endl;
     }
 
-    // std::cout << "ebo:" << std::endl;
-    // if(ebo_.size() < 4) {
-    //         std::cout << "      ";
-    //     for(unsigned int i = 0; i < ebo_.size(); i++) {
-    //         std:: cout << ebo_[i] << " ";
-    //     }
-    //     std::cout << std::endl;
-    // } else {
-    //     for(unsigned int i = 0; i < ebo_.size(); i += 4) {
-    //         std::cout << "      "
-    //                   << ebo_[i + 0] << " "
-    //                   << ebo_[i + 1] << " "
-    //                   << ebo_[i + 2] << " "
-    //                   << ebo_[i + 3] << " "
-    //                   << std::endl;
-    //     }
-    // }
+    std::cout << "ebo:" << std::endl;
+    if(ebo_.size() < 4) {
+            std::cout << "      ";
+        for(unsigned int i = 0; i < ebo_.size(); i++) {
+            std:: cout << ebo_[i] << " ";
+        }
+        std::cout << std::endl;
+    } else {
+        for(unsigned int i = 0; i < ebo_.size(); i += 4) {
+            std::cout << "      "
+                      << ebo_[i + 0] << " "
+                      << ebo_[i + 1] << " "
+                      << ebo_[i + 2] << " "
+                      << ebo_[i + 3] << " "
+                      << std::endl;
+        }
+    }
 }

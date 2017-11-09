@@ -17,7 +17,7 @@ public:
     bool initShaders();
     void addPoint(float x, float y);
     void clear();
-    void render(glm::mat4 transform);
+    void render();
 
 private:
     void loadPoints();
