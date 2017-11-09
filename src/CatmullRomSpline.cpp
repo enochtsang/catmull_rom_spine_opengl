@@ -26,6 +26,7 @@ CatmullRomSpline::CatmullRomSpline()
                           STRIDE * sizeof(float), (void*)0);
     glEnableVertexAttribArray(POS_VAO_ID);
 
+    // Determine max vertices in a patch
     GLint maxPatchVertices = 0;
     glGetIntegerv(GL_MAX_PATCH_VERTICES, &maxPatchVertices);
     std::cout << "Max supported patch vertices " << maxPatchVertices << std::endl;
@@ -54,7 +55,6 @@ bool CatmullRomSpline::initShaders() {
         std::cout << "Spline point shaders successfully initalized" << std::endl;
         return true;
     }
-
 
     std::cerr << "Image shaders failed to initialize" << std::endl;
     return false;
@@ -104,32 +104,4 @@ void CatmullRomSpline::loadPoints() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo_id_);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, ebo_.size() * sizeof(GLuint),
                  &ebo_.front(), GL_STATIC_DRAW);
-
-    std::cout << "points:" << std::endl;
-
-    for (unsigned int i = 0; i < points_.size(); i += 3) {
-        std::cout << "      "
-                  << points_[i + 0] << " "
-                  << points_[i + 1] << " "
-                  << points_[i + 2] << " "
-                  << std::endl;
-    }
-
-    std::cout << "ebo:" << std::endl;
-    if(ebo_.size() < 4) {
-            std::cout << "      ";
-        for(unsigned int i = 0; i < ebo_.size(); i++) {
-            std:: cout << ebo_[i] << " ";
-        }
-        std::cout << std::endl;
-    } else {
-        for(unsigned int i = 0; i < ebo_.size(); i += 4) {
-            std::cout << "      "
-                      << ebo_[i + 0] << " "
-                      << ebo_[i + 1] << " "
-                      << ebo_[i + 2] << " "
-                      << ebo_[i + 3] << " "
-                      << std::endl;
-        }
-    }
 }

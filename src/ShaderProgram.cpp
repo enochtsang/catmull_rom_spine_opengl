@@ -13,10 +13,6 @@ ShaderProgram::~ShaderProgram() {
     glDeleteProgram(id_);
 }
 
-GLuint ShaderProgram::id() {
-    return id_;
-}
-
 bool ShaderProgram::linkShaders(
     std::string vertexPath,
     std::string tessControlPath,

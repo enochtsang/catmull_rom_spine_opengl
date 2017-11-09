@@ -85,10 +85,9 @@ int main(int argc, char* argv[]) {
     // Handle adding points on mouse click
     glfwSetMouseButtonCallback(window, mouseButtonCallback);
 
-
     // main loop
     while (!glfwWindowShouldClose(window)) {
-        for(auto point : pointsToAdd) {
+        for (auto point : pointsToAdd) {
             spline.addPoint(point.first, point.second);
         }
 

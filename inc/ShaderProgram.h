@@ -10,7 +10,6 @@ class ShaderProgram {
 public:
     ShaderProgram();
     ~ShaderProgram();
-    GLuint id();
     bool linkShaders(
         std::string vertexPath,
         std::string tessControlPath,
