@@ -6,10 +6,7 @@
 
 #define GLFW_INCLUDE_GLCOREARB
 #define GL_GLEXT_PROTOTYPES
-
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 #include "DrawUtils.h"
 #include "CatmullRomSpline.h"

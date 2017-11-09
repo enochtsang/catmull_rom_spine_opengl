@@ -1,7 +1,5 @@
 #include <iostream>
 
-#include <glm/gtc/type_ptr.hpp>
-
 #include "CatmullRomSpline.h"
 
 namespace {
