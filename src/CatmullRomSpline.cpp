@@ -11,7 +11,7 @@ namespace {
 
 CatmullRomSpline::CatmullRomSpline()
     : points_{}
-    , ebo_{}{
+    , ebo_{} {
     // initialize GPU objects
     glGenVertexArrays(1, &vao_id_);
     glGenBuffers(1, &vbo_id_);
@@ -39,18 +39,18 @@ CatmullRomSpline::~CatmullRomSpline() {
 
 bool CatmullRomSpline::initShaders() {
     if (tessShaderProgram_.linkShaders(
-        "data/spline_vertex.glsl",
-        "data/spline_tess_control.glsl",
-        "data/spline_tess_eval.glsl",
-        "data/spline_fragment.glsl")) {
+                "data/spline_vertex.glsl",
+                "data/spline_tess_control.glsl",
+                "data/spline_tess_eval.glsl",
+                "data/spline_fragment.glsl")) {
         std::cout << "Spline tesselation shaders successfully initalized" << std::endl;
     }
 
     if (pointsShaderProgram_.linkShaders(
-        "data/spline_vertex.glsl",
-        "",
-        "",
-        "data/spline_fragment.glsl")) {
+                "data/spline_vertex.glsl",
+                "",
+                "",
+                "data/spline_fragment.glsl")) {
         std::cout << "Spline point shaders successfully initalized" << std::endl;
         return true;
     }
@@ -65,14 +65,14 @@ void CatmullRomSpline::addPoint(float x, float y) {
     points_.push_back(y);
     points_.push_back(0.f); // z
 
-    if(points_.size() <= 4 * 3) {
+    if (points_.size() <= 4 * 3) {
         // first patch
         ebo_.push_back(points_.size() / 3 - 1);
     } else {
         ebo_.push_back(points_.size() / 3 - 4);
-        ebo_.push_back(points_.size() / 3- 3);
-        ebo_.push_back(points_.size() / 3- 2);
-        ebo_.push_back(points_.size() / 3- 1);
+        ebo_.push_back(points_.size() / 3 - 3);
+        ebo_.push_back(points_.size() / 3 - 2);
+        ebo_.push_back(points_.size() / 3 - 1);
     }
 
     loadPoints();
@@ -119,7 +119,8 @@ void CatmullRomSpline::loadPoints() {
                  &ebo_.front(), GL_STATIC_DRAW);
 
     std::cout << "points:" << std::endl;
-    for(unsigned int i = 0; i < points_.size(); i += 3) {
+
+    for (unsigned int i = 0; i < points_.size(); i += 3) {
         std::cout << "      "
                   << points_[i + 0] << " "
                   << points_[i + 1] << " "

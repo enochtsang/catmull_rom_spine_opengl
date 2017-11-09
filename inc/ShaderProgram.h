@@ -12,10 +12,10 @@ public:
     ~ShaderProgram();
     GLuint id();
     bool linkShaders(
-    	std::string vertexPath,
-    	std::string tessControlPath,
-    	std::string tessEvalPath,
-    	std::string fragmentPath);
+        std::string vertexPath,
+        std::string tessControlPath,
+        std::string tessEvalPath,
+        std::string fragmentPath);
     void use();
 private:
     GLuint attachShader(std::string path, GLenum type, bool* success);

@@ -216,10 +216,12 @@ int main(int argc, char* argv[]) {
                     }
 
                     break;
+
                 case GLFW_KEY_C:
                     std::cout << "Clear" << std::endl;
                     spline.clear();
                     break;
+
                 case GLFW_KEY_A:
                     double newX;
                     double newY;
