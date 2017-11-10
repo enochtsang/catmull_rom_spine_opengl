@@ -4,7 +4,7 @@ An example program creating Catmull-Rom Splines in OpenGL 4 with tessellation sh
 
 == Compiling
 
-You will need GLFW3 and OpenGL libraries and `g++` that has C++11 features.
+You will need GLFW3 and OpenGL libraries and `gpass:[++]` that has C++11 features.
 Otherwise no special build tools are needed, just run `make` in the root directory and the `catmull-rom-spline` binary should be made.
 
 You can change the compiler to be clang or nvcc in the make file by changing the `CXX` variable.
